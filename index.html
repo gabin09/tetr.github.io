@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>로그인</title>
+  <script>
+    function showLogin() {
+      var username = document.getElementById("loginUsername").value;
+      var password = document.getElementById("loginPassword").value;
+      if (username === "master" && password === "20303") {
+    // 아이디와 비밀번호 필드 초기화
+    document.getElementById("loginUsername").value = "";
+    document.getElementById("loginPassword").value = "";
+
+    // index.html로 이동
+    window.location.href = "chats.html";
+  } else {
+    alert("잘못된 사용자 이름 또는 비밀번호입니다.");
+  }
+}
+
+function redirectToSignup() {
+  // 회원가입 페이지로 이동
+  window.location.href = "friends.html";
+}
+</script>
+</head>
+<body>
+  <h1>로그인</h1>
+  <form>
+    <label for="loginUsername">사용자명:</label>
+    <input type="text" id="loginUsername" name="loginUsername" required><br><br>
+    <label for="loginPassword">비밀번호:</label>
+<input type="password" id="loginPassword" name="loginPassword" required><br><br>
+
+<input type="button" value="로그인" onclick="showLogin()">
+<input type="button" value="회원가입" onclick="redirectToSignup()">
+</form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>회원 가입</title>
+  <script>
+    function showConfirmation() {
+      var username = document.getElementById("username").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirmationMessage = "회원 가입이 완료되었습니다.\n\n";
+  confirmationMessage += "사용자명: " + username + "\n";
+  confirmationMessage += "이메일: " + email + "\n";
+  confirmationMessage += "비밀번호: " + password;
+
+  alert(confirmationMessage);
+
+  // 아이디와 비밀번호 필드 초기화
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+
+  // 데이터 서버로 전송
+  var formData = new FormData();
+  formData.append("username", username);
+  formData.append("email", email);
+  formData.append("password", password);
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/signup", true);
+  xhr.send(formData);
+
+  // 로그인 폼으로 이동
+  window.location.href = "index.html";
+}
+</script>
+</head>
+<body>
+  <h1>회원 가입</h1>
+  <form>
+    <label for="username">사용자명:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="email">이메일:</label>
+<input type="email" id="email" name="email" required><br><br>
+
+<label for="password">비밀번호:</label>
+<input type="password" id="password" name="password" required><br><br>
+
+<input type="button" value="회원 가입" onclick="showConfirmation()">
+</form>
+</body>
+</html>
+
